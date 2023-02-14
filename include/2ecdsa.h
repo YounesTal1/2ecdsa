@@ -277,7 +277,6 @@ void MtA(int n, Fpoint P1Keysk, vector<Fpoint> P2EphKeysk, vector<Fpoint>& a, ve
 
 void P2SignPass3(int n, vector<Fpoint> m, vector<Fpoint>& s2, vector<Fpoint> b, vector<ECpoint> P21EphKeyPk, vector<KeyPair> P2EphKey, KeyPair P2Key)
 {
-//To clean this
 		Fpoint zz, rr;
 		Fpoint tmp, tmp2;
 		for(int i = 0; i < n; i++)

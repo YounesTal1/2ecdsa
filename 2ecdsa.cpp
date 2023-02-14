@@ -17,8 +17,8 @@ int main(int argc, char* argv[])
 
 
     if (argc >= 3) {
-		n_sig = stoi(argv[1]);
-        n_key = stoi(argv[2]);
+		n_key = stoi(argv[1]);
+        n_sig = stoi(argv[2]);
     }
 	else
 	{
