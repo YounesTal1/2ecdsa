@@ -4,16 +4,16 @@ This is a C++ implementation of the paper "Efficient Secure Two Party ECDSA", by
 
 
 ### Requirments:
-A C++ compiler
-[secp256k1](https://github.com/bitcoin-core/secp256k1) (used for operations over the curve)
-[GMP] (https://gmplib.org/) (used for inverting field elements)
-[OpenSSL] (https://www.openssl.org/) (used for Sha2)
+A C++ compiler  
+[secp256k1](https://github.com/bitcoin-core/secp256k1) (used for operations over the curve)  
+[GMP] (https://gmplib.org/) (used for inverting field elements)  
+[OpenSSL] (https://www.openssl.org/) (used for Sha2)  
 
 
 
 ### Usage:
-Run 'make'
-Run '.\2ecdsa_dummy_communication [number of keys] [number of signatures per key]'
+1. Run `make`
+2. Run `.\2ecdsa_dummy_communication [number of keys] [number of signatures per key]`
 
 The output is the average time of key generation, offline signing, and online signing.
 
