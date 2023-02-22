@@ -1,6 +1,6 @@
-# Two-Party ECDSA protocol with malicious adversaries
+# Two-Party ECDSA 
 
-This is a C++ implementation of the paper "Efficient Secure Two Party ECDSA", by Sermin Kocaman "sermin.cakin@metu.edu.tr", and Younes Talibi Alaoui "younes.talibialaoui@kuleuven.be"
+This is a C++ implementation of the protocol provided in the paper "Efficient Secure Two Party ECDSA" by Sermin Kocaman "sermin.cakin@metu.edu.tr", and Younes Talibi Alaoui "younes.talibialaoui@kuleuven.be".
 
 
 ### Requirements:
