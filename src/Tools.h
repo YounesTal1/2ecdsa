@@ -18,21 +18,6 @@
 
 using namespace std;
 
-//template <typename... Arrays>
-//unsigned char* concat_char(const Arrays&... arrays) {
-//    // Determine the total size of the concatenated array
-//    size_t total_size = 0;
-//    (void)initializer_list<size_t>{(total_size += sizeof(arrays), 0)...};
-//    // Allocate memory for the concatenated array
-//    unsigned char* concatenated_array = new unsigned char[total_size];
-//    // Keep track of the current offset in the concatenated array
-//    size_t offset = 0;
-//    // Copy the data from each input array to the concatenated array
-//    (void)initializer_list<size_t>{(memcpy(concatenated_array + offset, arrays, sizeof(arrays)), offset += sizeof(arrays), 0)...};
-//    return concatenated_array;
-//}
-//
-
 inline unsigned char* concat_char(unsigned char *a, unsigned char *b, unsigned char *c) 
 {
 
@@ -59,16 +44,6 @@ string concat(T t) {
 }
 
 
-//template <typename T, typename... Args>
-//string concat(T t, Args... args) {
-//  stringstream ss;
-//  ss << t << concat(args...);
-//	cout << "inside" << endl;
-//  cout << ss.str() << endl;
-//  return ss.str();
-//}
-//
-//
 template <typename T, typename... Args>
 string concat(T t, Args... args) {
   stringstream ss;
@@ -108,23 +83,6 @@ inline string To_str(unsigned char* m)
 	return ss.str();
 }
 
-
-
-//inline vector<string> Parse(string proof)
-//{
-//
-//  vector<string> values;
-//  istringstream iss(proof);
-//  string token;
-//
-//  while (getline(iss, token, '|'))
-//  {
-//    values.push_back(token);
-//  }
-//
-//  return values;
-//}
-//
 
 
 inline unsigned char* To_char(secp256k1_pubkey *pubk)
@@ -171,7 +129,7 @@ inline void print_Fpoint(Fpoint a)
     }
     cout << ss.str() << endl;
 }
-#endif
+
 
 inline unsigned char* moveZerosToStart(unsigned char* input, size_t count) 
 {
@@ -188,3 +146,5 @@ inline unsigned char* moveZerosToStart(unsigned char* input, size_t count)
 
     return temp;
 }
+
+#endif

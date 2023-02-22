@@ -3,7 +3,7 @@
 
 #include "ECpoint.h"
 
-/*Using NIZKP of Schnor. 
+/*Using NIZKP of Schnorr. 
 'https://crypto.stanford.edu/cs355/19sp/lec5.pdf' For details about it.
 */ 
 using namespace std;
