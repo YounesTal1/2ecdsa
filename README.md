@@ -4,7 +4,7 @@ This is a C++ implementation of the paper "Efficient Secure Two Party ECDSA", by
 
 
 ### Requirements:
-A C++ compiler  
+C++ compiler  
 [secp256k1](https://github.com/bitcoin-core/secp256k1) (used for operations over the curve)  
 [GMP](https://gmplib.org/) (used for inverting field elements)  
 [OpenSSL](https://www.openssl.org/) (used for SHA256)  
