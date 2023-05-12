@@ -31,7 +31,7 @@ int main(int argc, char* argv[])
 	srand(time(NULL));
 
 
-	double time_off = 0, time_on = 0, time_gen = 0, elapsed_time;
+	double time_off = 0, time_on = 0, time_gen = 0, time_MtA = 0, elapsed_time;
 	clock_t start, end;	
 			 
 	cout << "Generating " << n_key << " key(s), and signing " << n_sig << " message(s) with each key" << endl;
@@ -40,7 +40,7 @@ int main(int argc, char* argv[])
 	{ 
 			vector<Fpoint> comms, m, s, s1, s2, a, b, P2EphKeysk, rands, rcoords, msgs;
 
-			vector<ECpoint> P12EphKeyPk, P1EphKeyPk, P2EphKeyPk, P21EphKeyPk;
+			vector<ECpoint> P12EphKeyPk, P1EphKeyPk, P2EphKeyPk, P21EphKeyPk, Z; 
 			vector<KeyPair> P1EphKey, P2EphKey; 
 
 			vector<string>  messages;
@@ -48,7 +48,7 @@ int main(int argc, char* argv[])
 
 			KeyPair P1Key, P2Key;
 			NIZKP P1ni, P2ni;
-			ECpoint KeyPk, P1KeyPk, P2KeyPk, P12KeyPk, P21KeyPk;
+			ECpoint KeyPk, P12KeyPk, P21KeyPk;
 			Commit cm;
 	
 		
@@ -78,6 +78,7 @@ int main(int argc, char* argv[])
 			time_gen += elapsed_time;
 
 
+
 			start = clock();
 			P1SignPass1(n_sig, P1EphKey, P1proofs, comms, messages, rands, P1EphKeyPk);
 			P2SignPass1(n_sig, P2EphKey, P2proofs, P2EphKeyPk, P2EphKeysk);
@@ -90,6 +91,16 @@ int main(int argc, char* argv[])
 
 			//Note not timing MtA
 			MtA(n_sig, P1Key.sk, P2EphKeysk, a, b);
+
+			
+
+			start = clock();
+			P1MtA(n_sig, a, Z);
+			P2MtA(n_sig, b, Z, P2EphKeysk, P1Key.Pk);
+			end = clock();
+			elapsed_time = double(end-start)/CLOCKS_PER_SEC;
+			time_MtA += elapsed_time;
+
 
 			start = clock();
 			P2SignPass3(n_sig, m, s2, b, P21EphKeyPk, P2EphKey, P2Key);
@@ -119,7 +130,7 @@ int main(int argc, char* argv[])
 	cout << "All siganture were valid" << endl;
 	cout << "Runtimes in second:" << endl;
 	cout << "Average key generation time (i.e. time needed for one key generation)                     :" << time_gen/n_key << endl;
-	cout << "Average signature offline time (i.e. offline time needed for one signature excluding MtA) :" << time_off/(n_key*n_sig) << endl;
+	cout << "Average signature offline time (i.e. offline time needed for one signature excluding MtA) :" << (time_off + time_MtA)/(n_key*n_sig) << endl;
 	cout << "Average signature online time  (i.e. online time needed for one signature)                :" << time_on/(n_key*n_sig) << endl;
 
 

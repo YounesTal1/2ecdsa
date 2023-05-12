@@ -272,6 +272,40 @@ void MtA(int n, Fpoint P1Keysk, vector<Fpoint> P2EphKeysk, vector<Fpoint>& a, ve
 
 
 
+void P1MtA(int n, vector<Fpoint> a, vector<ECpoint>& Z)
+{
+	for(int i = 0; i < n; i++)
+        {
+
+		ECpoint ZZ;
+		ZZ = ECpoint::Multiply_Gen(a[i]);
+		Z.push_back(ZZ);
+	}
+}	
+
+
+void P2MtA(int n, vector<Fpoint> b, vector<ECpoint> Z, vector<Fpoint> P2EphKeysk, ECpoint P1KeyPk)
+{
+	for(int i = 0; i < n; i++)
+	{
+		ECpoint Y;
+		Y = ECpoint::Multiply_Gen(b[i]);
+		Y = ECpoint::Add(Y,Z[i]);
+		Y = ECpoint::Multiply(P2EphKeysk[i], Y);
+
+		
+		string YY =  Key_To_str(&Y.P) ;
+		string KK =  Key_To_str(&P1KeyPk.P) ;
+
+
+                if (YY != KK)
+                {
+                        cout << "Check after MtA fails" << endl;
+                        abort();
+                }
+	}
+
+}	
 
 
 
