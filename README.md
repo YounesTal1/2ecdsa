@@ -1,6 +1,6 @@
 # Two-Party ECDSA 
 
-This is a C++ implementation of the protocol provided in the paper "Efficient Secure Two Party ECDSA" (to appear soon) by Sermin Kocaman "sermin.cakin@metu.edu.tr", and Younes Talibi Alaoui "talibialaouiyounes@gmail.com".
+This is a C++ implementation of the protocol provided in the paper ["Efficient Secure Two Party ECDSA"](https://eprint.iacr.org/2023/1455) by Sermin Kocaman "sermin.cakin@metu.edu.tr", and Younes Talibi Alaoui "talibialaouiyounes@gmail.com".
 
 
 ### Requirements:
